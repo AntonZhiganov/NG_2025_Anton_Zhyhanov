@@ -8,6 +8,7 @@ int main()
     float num1;
     float num2;
     int action;
+    int degree;
 
     cout << "Enter first number: ";
     cin >> num1;
@@ -35,7 +36,9 @@ int main()
     }
 
     if (action == 5){
-        cout << num1 * num1  << endl;
+        cout << "To what power should the number be " << num1 << "?" << endl;
+        cin >> degree;
+        cout << pow(num1, degree)  << endl;
     }
 
     if (action == 6){
