@@ -19,6 +19,8 @@ int main()
     cout << "1-(+), 2-(-), 3-(*), 4-(/), 5-(degree), 6-(square root)" << endl;
     cin >> action;
 
+    cout << "Result: ";
+
     if (action == 1){
         cout << num1 + num2  << endl;
     }
