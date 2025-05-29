@@ -1,22 +1,29 @@
 #include <iostream>
-#include <string>
-#include <regex>
+#include <cctype>
 
 using namespace std;
 
 int main() {
-    string line;
+    char line[1000];
 
     cout << "Enter line: ";
-    getline(cin, line);
+    cin.getline(line, 1000);
 
-    regex word(R"([A-Za-z]+)");
-    sregex_iterator it(line.begin(), line.end(), word);
-    sregex_iterator end;
+    int wordCount = 0;
+    bool inWord = false;
 
-    int wordCount = distance(it, end);
+    for (int cHar = 0; line[cHar] != '\0'; ++cHar) {
+        if (isalpha(line[cHar])) {
+            if (!inWord) {
+                inWord = true;
+                ++wordCount;
+            }
+        } else {
+            inWord = false;
+        }
+    }
 
-    cout << "There are " << wordCount << " words in this line."<< endl;
+    cout << "There are " << wordCount << " words in this line." << endl;
 
     return 0;
 }
